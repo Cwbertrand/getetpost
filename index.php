@@ -19,7 +19,7 @@
     <div class="container py-5">
         <h2> Ajouter les Produit</h2>
 
-        <form method="POST" action="traitement.php">
+        <form method="POST" action="recapp.php">
             <div class="form-group" >
                 <label for="nomDeProduit">Produit</label>
                 <input type="text" class="form-control w-50" id="nomDeProduit" name="product_name">

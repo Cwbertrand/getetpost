@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include "traitement.php";
 ?>
 
 <!doctype html>
@@ -16,8 +17,49 @@
   </head>
   <body>
 
-    <?php var_dump($_SESSION) ; ?>
-    <div class="container py-5">
+
+      <?php 
+
+      //It passes a condition and the else part does a loop and shows the info of traitement.php
+        if (!isset($_SESSION['products']) || empty($_SESSION['products'])) {
+            echo "<p>Aucune produit en session...</p>";
+        }else{
+            echo '<table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Produit</th>
+                  <th scope="col">Prix Unitaire</th>
+                  <th scope="col">Quantité</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>';
+              $grosstotal = 0;
+              foreach ($_SESSION['products'] as $index => $product) {
+                echo '<tr>',
+                        '<td>'.$index.'</td>',
+                        '<td>'.$product['produit'].'</td>',
+                        '<td>'.number_format($product['prix'], 2, ',', '&nbsp').' €</td>',
+                        '<td>'.$product['qty'].'</td>',
+                        '<td>'.number_format($product['total'], 2, ',', '&nbsp').' €</td>', 
+                        //La fonction PHP number_format() permet de modifier l'affichage d'une valeur numérique 
+                        //en précisant plusieurs paramètres
+                      '</tr>';
+
+                      //le fonction calcule tous le subtotal et donne le gross total
+                      $grosstotal += $product['total']; 
+              } 
+              echo '<tr>
+                        <td colspan=4 >Total General: </td>
+                        <td><b>'.number_format($grosstotal, 2, ',', '&nbsp').' € </b></td>
+                    </tr>';
+              '</tbody>
+            </table>';
+        }
+      
+      ?>
+      <div class="container py-5">
         <h2> Ajouter les Produit</h2>
     </div>
 

@@ -1,5 +1,4 @@
 <?php
-    session_start();
 
     if (isset($_POST['submit'])) {
         $produit = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -14,13 +13,17 @@
                 'total' => $prix * $qty
             ];
 
-            //$_SESSION['products'][] = $product;
-            array_push($_SESSION['products'], $product);
+            //this creates a table when you press the submit button
+            //the $_SESSION['product'] creates the table and [] just adds.
+            $_SESSION['products'][] = $product; 
+            
+            //array_push($_SESSION['products'], $product); 
+            //this does that also but on an already existing table
         }
 
     }
 
-    var_dump($_SESSION);
+    //var_dump($_SESSION);
     //header('Location: index.php');
 
     
