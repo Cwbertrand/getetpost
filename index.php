@@ -15,11 +15,13 @@
     <title>Hello, world!</title>
   </head>
   <body>
+
+
  
     <div class="container py-5">
         <h2> Ajouter les Produit</h2>
 
-        <form method="POST" action="recapp.php">
+        <form method="POST" action="recap.php">
             <div class="form-group" >
                 <label for="nomDeProduit">Produit</label>
                 <input type="text" class="form-control w-50" id="nomDeProduit" name="product_name">
