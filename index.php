@@ -26,11 +26,11 @@
             </div>
             <div class="form-group" >
                 <label for="prixunitaire">Prix</label>
-                <input type="number" step="any" class="form-control w-50" id="prixunitaire" name="prix">
+                <input type="number" min="1" step="any" class="form-control w-50" id="prixunitaire" name="prix">
             </div>
             <div class="form-group" >
                 <label for="quantity">quantity</label>
-                <input type="number" class="form-control w-25" id="quantity" name="qty">
+                <input type="number" min="1" class="form-control w-25" id="quantity" name="qty">
             </div>
 
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
