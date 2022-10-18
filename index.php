@@ -1,43 +1,31 @@
 <?php
-    session_start();
+    session_start(); 
 ?>
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <?php include './Includes/header.include.php' ?>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
-
-
- 
-    <div class="container py-5">
-        <h2> Ajouter les Produit</h2>
-
-        <form method="POST" action="recap.php">
-            <div class="form-group" >
-                <label for="nomDeProduit">Produit</label>
-                <input type="text" class="form-control w-50" id="nomDeProduit" name="product_name">
+        <div class="container py-5">
+            <div class="alert alert-danger" role="alert">
+                <?php $_SESSION['message'] ?>
             </div>
-            <div class="form-group" >
-                <label for="prixunitaire">Prix</label>
-                <input type="number" min="1" step="any" class="form-control w-50" id="prixunitaire" name="prix">
-            </div>
-            <div class="form-group" >
-                <label for="quantity">quantity</label>
-                <input type="number" min="1" class="form-control w-25" id="quantity" name="qty">
-            </div>
+            <h2> Ajouter les Produit</h2>
+            <form method="POST" action="recap.php">
+                <div class="form-group" >
+                    <label for="nomDeProduit">Produit</label>
+                    <input type="text" class="form-control w-50" id="nomDeProduit" name="product_name">
+                </div>
+                <div class="form-group" >
+                    <label for="prixunitaire">Prix</label>
+                    <input type="number" min="1" step="any" class="form-control w-50" id="prixunitaire" name="prix">
+                </div>
+                <div class="form-group" >
+                    <label for="quantity">quantity</label>
+                    <input type="number" min="1" class="form-control w-25" id="quantity" name="qty">
+                </div>
 
-            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
 
 
 
