@@ -19,6 +19,7 @@
                   <th scope="col">Prix Unitaire</th>
                   <th scope="col">Quantité</th>
                   <th scope="col">Total</th>
+                  <th scope="col">Suprimer</th>
                 </tr>
               </thead>
               <tbody>';
@@ -28,8 +29,25 @@
                         '<td>'.$index.'</td>',
                         '<td>'.$product['produit'].'</td>',
                         '<td>'.number_format($product['prix'], 2, ',', '&nbsp').' €</td>',
-                        '<td>'.$product['qty'].'</td>',
+                        '<td> 
+                            <form method="GET" class="">
+                              <button type="button" name="minus" class="btn text-white bg-primary rounded-lg">
+                                <i class="fa-solid fa-minus"></i>
+                              </button>
+
+                                '.$product['qty'].' 
+
+                              <button type="button" name="plus" class="btn rounded-lg text-white bg-primary">
+                                <i class="fa-solid fa-plus"></i>
+                              </button>
+                            </form>
+                        </td>',
                         '<td>'.number_format($product['total'], 2, ',', '&nbsp').' €</td>', 
+                        '<td class="">
+                            <button type="button" name="delete" class=" btn bg-danger rounded-lg text-white text-center">
+                              <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>', 
                         //La fonction PHP number_format() permet de modifier l'affichage d'une valeur numérique 
                         //en précisant plusieurs paramètres
                       '</tr>';
@@ -40,6 +58,15 @@
               echo '<tr>
                         <td colspan=4 >Total General: </td>
                         <td><b>'.number_format($grosstotal, 2, ',', '&nbsp').' € </b></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <form method="GET">
+                          <button type="button" name="delete" class=" btn bg-danger rounded-lg text-white text-center">
+                            Vider le panier
+                          </button>
+                        </form>
+                      </td>
                     </tr>';
               '</tbody>
             </table>';
