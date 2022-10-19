@@ -65,7 +65,7 @@
                     <tr>
                       <td>
                         <form method="get" action="index.php">
-                          <a href=""><button type="button" name="all_delete" class=" btn bg-danger rounded-lg text-white text-center">
+                          <a href="recap.php?action='. $_SESSION['all_delete'] .'"><button type="button" name="all_delete" class=" btn bg-danger rounded-lg text-white text-center">
                             Vider le panier
                           </button>
                         </form>
