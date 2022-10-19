@@ -13,19 +13,21 @@
                 'prix' => $prix,
                 'qty' => $qty,
                 'total' => $prix * $qty,
-                'message' => $message
             ];
             
             //this creates a table when you press the submit button
             //the $_SESSION['product'] creates the table and [] just adds.
-            $_SESSION['products'][] = $product; 
-            $message = 'la produit est ajouter successivement';
+            $_SESSION['products'][] = $product;
+            $_SESSION['message'] = 'la produit est ajouter successivement';
+            header('Location: index.php');
+            exit(0);
             
             //array_push($_SESSION['products'], $product); 
             //this does that also but on an already existing table
         }else {
-            $message = 'la produit n\'est pas ajouter, reessayer encour';
+            $_SESSION['message'] = 'la produit n\'est pas ajouter, reessayer encour';
             header('Location: index.php');
+            exit(0);
         }
     }
 
