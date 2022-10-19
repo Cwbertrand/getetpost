@@ -1,13 +1,14 @@
 <?php
-    session_start(); 
+    session_start();
+    include 'traitement.php';
 ?>
 
     <?php include './Includes/header.include.php' ?>
+    
 
         <div class="container py-5">
-            <div class="alert alert-danger" role="alert">
-                <?php $_SESSION['message'] ?>
-            </div>
+            <!-- il affichage le message qui dire soit ou non (whether or not) le produit est ajouté -->
+            <?php include './Includes/message.php' ?>
             <h2> Ajouter les Produit</h2>
             <form method="POST" action="recap.php">
                 <div class="form-group" >
