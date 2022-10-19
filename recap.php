@@ -11,7 +11,8 @@
         if (!isset($_SESSION['products']) || empty($_SESSION['products'])) {
             echo "<p>Aucune produit en session...</p>";
         }else{
-            echo '<table class="table">
+            echo '<form method="get">
+            <table class="table">
               <thead>
                 <tr>
                   <th scope="col">ID</th>
@@ -43,11 +44,13 @@
                             </form>
                         </td>',
                         '<td>'.number_format($product['total'], 2, ',', '&nbsp').' €</td>', 
-                        '<td class="">
-                            <button type="button" name="delete" class=" btn bg-danger rounded-lg text-white text-center">
-                              <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </td>', 
+                        '<form method="get">
+                          <td class="">
+                              <a href=""><button type="submit" name="delete" class="btn bg-danger rounded-lg text-white text-center">
+                                <i class="fa-solid fa-trash"></i>
+                              </button></a>
+                          </td>
+                        </form>', 
                         //La fonction PHP number_format() permet de modifier l'affichage d'une valeur numérique 
                         //en précisant plusieurs paramètres
                       '</tr>';
@@ -61,15 +64,16 @@
                     </tr>
                     <tr>
                       <td>
-                        <form method="GET">
-                          <button type="button" name="delete" class=" btn bg-danger rounded-lg text-white text-center">
+                        <form method="get" action="index.php">
+                          <a href=""><button type="button" name="all_delete" class=" btn bg-danger rounded-lg text-white text-center">
                             Vider le panier
                           </button>
                         </form>
                       </td>
                     </tr>';
               '</tbody>
-            </table>';
+            </table>
+            </form>';
         }
       
       ?>

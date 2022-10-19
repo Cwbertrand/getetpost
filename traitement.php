@@ -1,5 +1,7 @@
 <?php
 
+
+    // CREER LA TABLE
     if (isset($_POST['submit'])) {
         $produit = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_SPECIAL_CHARS);
         $prix = filter_input(INPUT_POST, 'prix', FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
@@ -32,7 +34,27 @@
         }
     }
 
-    //var_dump($_SESSION);
+    // VIDER LE PANIER
+    if (isset($_GET['all_delete']) && $_GET['all_delete'] === $_SESSION['all_delete']) {
+        $produit = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_SPECIAL_CHARS);
+        $prix = filter_input(INPUT_POST, 'prix', FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+        $qty = filter_input(INPUT_POST, 'qty', FILTER_VALIDATE_INT);
+
+        if ($produit && $prix && $qty) {
+            $product = [
+                'produit' => $produit,
+                'prix' => $prix,
+                'qty' => $qty,
+                'total' => $prix * $qty,
+            ];
+            
+            $_SESSION['products'][] = $product;
+        }else {
+            unset($_SESSION['products']);
+        }
+        
+    }
+
     
 
     
