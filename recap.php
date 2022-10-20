@@ -50,6 +50,10 @@
                       $grosstotal += $product['total']; 
               } 
               echo '<tr>
+                      <td colspan=1 >Total product: </td>
+                      <td><b>'. count($product).'</b></td>
+                    </tr>
+                    <tr>
                         <td colspan=4 >Total General: </td>
                         <td><b>'.number_format($grosstotal, 2, ',', '&nbsp').' € </b></td>
                     </tr>

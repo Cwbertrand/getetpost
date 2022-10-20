@@ -1,5 +1,6 @@
 <?php
     session_start();
+    
     if (isset($_GET['action'])) {
         switch ($_GET['action']) {
             case 'add':
@@ -8,7 +9,6 @@
                     $produit = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_SPECIAL_CHARS);
                     $prix = filter_input(INPUT_POST, 'prix', FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                     $qty = filter_input(INPUT_POST, 'qty', FILTER_VALIDATE_INT);
-                    //$message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
 
                     if ($produit && $prix && $qty) {
                         $product = [
@@ -50,13 +50,14 @@
             //SUBTRACT PRODUCT FROM RECAP.PHP
             case 'minus':
                 if (isset($_GET['produit']) && $_SESSION['products'][$_GET['produit']]) {
-                    if ($_SESSION['products'][$_GET['produit']]['qty'] >= 1){
+                    if ($_SESSION['products'][$_GET['produit']]['qty'] > 1){
 
                         $_SESSION['products'][$_GET['produit']]['qty']--;
                         $_SESSION['products'][$_GET['produit']]['total'] = $_SESSION['products'][$_GET['produit']]['prix'] * $_SESSION['products'][$_GET['produit']]['qty'];
                         header('Location: recap.php');
                         exit(0);
                     }else {
+                        unset($_SESSION['products'][$_GET['produit']]);
                         header('Location: recap.php');
                         exit(0);
                     }
@@ -68,6 +69,9 @@
             case 'delete_product':
                 if (isset($_GET['produit']) && $_SESSION['products'][$_GET['produit']]) {
                     unset($_SESSION['products'][$_GET['produit']]);
+                    header('Location: recap.php');
+                    exit(0);
+                }else{
                     header('Location: recap.php');
                     exit(0);
                 }
