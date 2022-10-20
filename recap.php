@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include "traitement.php";
 ?>
 
   <?php include './Includes/header.include.php' ?>
@@ -31,26 +30,18 @@
                         '<td>'.$product['produit'].'</td>',
                         '<td>'.number_format($product['prix'], 2, ',', '&nbsp').' €</td>',
                         '<td> 
-                            <form method="GET" class="">
-                              <button type="button" name="minus" class="btn text-white bg-primary rounded-lg">
-                                <i class="fa-solid fa-minus"></i>
-                              </button>
+                            <a href="traitement.php?action=minus&qty='.$index.'" class="btn text-white bg-primary rounded-lg">
+                              <i class="fa-solid fa-minus"></i></a>
 
                                 '.$product['qty'].' 
 
-                              <button type="button" name="plus" class="btn rounded-lg text-white bg-primary">
-                                <i class="fa-solid fa-plus"></i>
-                              </button>
-                            </form>
+                              <a href="traitement.php?action=plus&qty='.$index.'" class="btn text-white bg-primary rounded-lg">
+                                <i class="fa-solid fa-plus"></i></a>
                         </td>',
-                        '<td>'.number_format($product['total'], 2, ',', '&nbsp').' €</td>', 
-                        '<form method="get">
-                          <td class="">
-                              <a href=""><button type="submit" name="delete" class="btn bg-danger rounded-lg text-white text-center">
-                                <i class="fa-solid fa-trash"></i>
-                              </button></a>
-                          </td>
-                        </form>', 
+                        '<td>'.number_format($product['total'], 2, ',', '&nbsp').' €</td>',
+                          '<td class="">
+                              <a href="traitement.php?action=delete_product&produit='.$index.'" class="btn bg-danger rounded-lg text-white text-center"><i class="fa-solid fa-trash"></i></a>
+                          </td>', 
                         //La fonction PHP number_format() permet de modifier l'affichage d'une valeur numérique 
                         //en précisant plusieurs paramètres
                       '</tr>';
@@ -64,11 +55,7 @@
                     </tr>
                     <tr>
                       <td>
-                        <form method="get" action="index.php">
-                          <a href="recap.php?action='. $_SESSION['all_delete'] .'"><button type="button" name="all_delete" class=" btn bg-danger rounded-lg text-white text-center">
-                            Vider le panier
-                          </button>
-                        </form>
+                          <a href="traitement.php?action=all_delete" class="btn btn-danger"> Vider le paniers </a>
                       </td>
                     </tr>';
               '</tbody>

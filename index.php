@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include 'traitement.php';
 ?>
 
     <?php include './Includes/header.include.php' ?>
@@ -10,8 +9,8 @@
             <!-- il affichage le message qui dire soit ou non (whether or not) le produit est ajouté -->
             <?php include './Includes/message.php' ?>
             <h2> Ajouter les Produit</h2>
-            <form method="POST" action="recap.php">
-                <div class="form-group" >
+            <form method="POST" action="traitement.php?action=add">
+                <div class="form-group">
                     <label for="nomDeProduit">Produit</label>
                     <input type="text" class="form-control w-50" id="nomDeProduit" name="product_name">
                 </div>

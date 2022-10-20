@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     if (isset($_GET['action'])) {
         switch ($_GET['action']) {
             case 'add':
@@ -36,13 +36,30 @@
                     }
                 }
                 break;
+
+            //SUBTRACT PRODUCT FROM RECAP.PHP
+            case 'plus':
+                if (isset($_GET['qty']) && $_SESSION['products'][$_GET['produit']]) {
+                    ++$_SESSION['products'][$_GET['produit']['qty']];
+                }
+                break;
+
+            //SUPRIMER LE PRODUIT
+            case 'delete_product':
+                if (isset($_GET['produit']) && $_SESSION['products'][$_GET['produit']]) {
+                    unset($_SESSION['products'][$_GET['produit']]);
+                    header('Location: recap.php');
+                    exit(0);
+                }
+                
+                break;
+
+            // VIDER LE PANIER
             case 'all_delete':
-                // VIDER LE PANIER
-                if (isset($_GET['all_delete']) && $_GET['all_delete'] === $_SESSION['all_delete']) {
-
-                        unset($_SESSION['products']);
-                    }
-
+                    unset($_SESSION['products']);
+                    header('Location: recap.php');
+                    exit(0);
+                
                 break;
             
             default:
@@ -52,6 +69,8 @@
         # code...
     }
 
+
+    //$_SESSION['products'][$_GET['produit']]['total'] = $_SESSION['products'][$_GET['id']]['price'] * $_SESSION['products'][$_GET['id']]['qtt'];
     
 
     
