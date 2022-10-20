@@ -37,12 +37,30 @@
                 }
                 break;
 
-            //SUBTRACT PRODUCT FROM RECAP.PHP
+            //PLUS PRODUCT FROM RECAP.PHP
             case 'plus':
-                var_dump($_SESSION['products'][$_GET['products']['qty']]);
-                die;
-                if (isset($_GET['qty']) && $_SESSION['products'][$_GET['qty']]) {
-                    ++$_SESSION['products'][$_GET['products']['qty']];
+                if (isset($_GET['produit']) && $_SESSION['products'][$_GET['produit']]) {
+                    $_SESSION['products'][$_GET['produit']]['qty']++;
+                    $_SESSION['products'][$_GET['produit']]['total'] = $_SESSION['products'][$_GET['produit']]['prix'] * $_SESSION['products'][$_GET['produit']]['qty'];
+                    header('Location: recap.php');
+                    exit(0);
+                }
+                break;
+
+            //SUBTRACT PRODUCT FROM RECAP.PHP
+            case 'minus':
+                if (isset($_GET['produit']) && $_SESSION['products'][$_GET['produit']]) {
+                    if ($_SESSION['products'][$_GET['produit']]['qty'] >= 1){
+
+                        $_SESSION['products'][$_GET['produit']]['qty']--;
+                        $_SESSION['products'][$_GET['produit']]['total'] = $_SESSION['products'][$_GET['produit']]['prix'] * $_SESSION['products'][$_GET['produit']]['qty'];
+                        header('Location: recap.php');
+                        exit(0);
+                    }else {
+                        header('Location: recap.php');
+                        exit(0);
+                    }
+                    
                 }
                 break;
 
@@ -72,7 +90,7 @@
     }
 
 
-    //$_SESSION['products'][$_GET['produit']]['total'] = $_SESSION['products'][$_GET['id']]['price'] * $_SESSION['products'][$_GET['id']]['qtt'];
+    
     
 
     

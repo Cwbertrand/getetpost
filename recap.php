@@ -30,12 +30,12 @@
                         '<td>'.$product['produit'].'</td>',
                         '<td>'.number_format($product['prix'], 2, ',', '&nbsp').' €</td>',
                         '<td> 
-                            <a href="traitement.php?action=minus&qty='.$index.'" class="btn text-white bg-primary rounded-lg">
+                            <a href="traitement.php?action=minus&produit='.$index.'" class="btn text-white bg-primary rounded-lg">
                               <i class="fa-solid fa-minus"></i></a>
 
                                 '.$product['qty'].' 
 
-                              <a href="traitement.php?action=plus&qty='.$index.'" class="btn text-white bg-primary rounded-lg">
+                              <a href="traitement.php?action=plus&produit='.$index.'" class="btn text-white bg-primary rounded-lg">
                                 <i class="fa-solid fa-plus"></i></a>
                         </td>',
                         '<td>'.number_format($product['total'], 2, ',', '&nbsp').' €</td>',
