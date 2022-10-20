@@ -39,8 +39,10 @@
 
             //SUBTRACT PRODUCT FROM RECAP.PHP
             case 'plus':
-                if (isset($_GET['qty']) && $_SESSION['products'][$_GET['produit']]) {
-                    ++$_SESSION['products'][$_GET['produit']['qty']];
+                var_dump($_SESSION['products'][$_GET['products']['qty']]);
+                die;
+                if (isset($_GET['qty']) && $_SESSION['products'][$_GET['qty']]) {
+                    ++$_SESSION['products'][$_GET['products']['qty']];
                 }
                 break;
 
