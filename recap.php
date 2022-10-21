@@ -30,7 +30,7 @@
               foreach ($_SESSION['products'] as $index => $product) {
                 echo '<tr>',
                         '<td>'.$index.'</td>',
-                        '<td style="width: 10%;"><img class="w-25" src=./images/'.$product['image'].'></td>',
+                        '<td style="width: 15%;"><img class="w-50" src=./images/'.$product['image'].'></td>',
                         '<td>'.$product['produit'].'</td>',
                         '<td class="w-25">'.$product['description'].'</td>',
                         '<td>'.number_format($product['prix'], 2, ',', '&nbsp').' €</td>',
@@ -56,7 +56,7 @@
               } 
               echo '<tr>
                       <td colspan=1 >Total product: </td>
-                      <td><b>'. count($product).'</b></td>
+                      <td><b>'. count($_SESSION['products']).'</b></td>
                     </tr>
                     <tr>
                         <td colspan=4 >Total General: </td>

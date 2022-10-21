@@ -26,7 +26,7 @@
                     <label for="descr">Description</label><br>
                         <textarea  rows="5" cols="33" name="description" id="descr" style="resize: none;"></textarea>
                 </div>
-                <div class="form-group" >
+                <div class="form-group">
                     <label for="file">Fichier</label>
                     <input type="file" name="image" alt="image">
                 </div>
