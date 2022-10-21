@@ -9,7 +9,7 @@
             <!-- il affichage le message qui dire soit ou non (whether or not) le produit est ajouté -->
             <?php include './Includes/message.php' ?>
             <h2> Ajouter les Produit</h2>
-            <form method="POST" action="traitement.php?action=add">
+            <form method="POST" action="traitement.php?action=add" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nomDeProduit">Produit</label>
                     <input type="text" class="form-control w-50" id="nomDeProduit" name="product_name">
@@ -22,6 +22,17 @@
                     <label for="quantity">quantity</label>
                     <input type="number" min="1" class="form-control w-25" id="quantity" name="qty">
                 </div>
+                <div class="form-group" >
+                    <label for="descr">Description</label><br>
+                        <textarea  rows="5" cols="33" name="description" id="descr" style="resize: none;"></textarea>
+                </div>
+                <div class="form-group" >
+                    <label for="file">Fichier</label>
+                    <input type="file" name="image" alt="image" accept="image/*">
+                </div>
+
+
+                
 
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>

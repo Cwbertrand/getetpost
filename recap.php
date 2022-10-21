@@ -15,7 +15,9 @@
               <thead>
                 <tr>
                   <th scope="col">ID</th>
+                  <th scope="col">Image</th>
                   <th scope="col">Produit</th>
+                  <th scope="col">Description</th>
                   <th scope="col">Prix Unitaire</th>
                   <th scope="col">Quantité</th>
                   <th scope="col">Total</th>
@@ -27,7 +29,9 @@
               foreach ($_SESSION['products'] as $index => $product) {
                 echo '<tr>',
                         '<td>'.$index.'</td>',
+                        '<td class="w-25">'.$product['image'].'</td>',
                         '<td>'.$product['produit'].'</td>',
+                        '<td class="w-25">'.$product['description'].'</td>',
                         '<td>'.number_format($product['prix'], 2, ',', '&nbsp').' €</td>',
                         '<td> 
                             <a href="traitement.php?action=minus&produit='.$index.'" class="btn text-white bg-primary rounded-lg">
