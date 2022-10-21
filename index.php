@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group" >
                     <label for="file">Fichier</label>
-                    <input type="file" name="image" alt="image" accept="image/*">
+                    <input type="file" name="image" alt="image">
                 </div>
 
 
